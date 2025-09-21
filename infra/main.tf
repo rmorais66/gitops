@@ -42,10 +42,10 @@ resource "azurerm_linux_virtual_machine" "vm" {
     azurerm_network_interface.nic.id
   ]
 
-  admin_ssh_key {
-    username   = "azureuser"
-    public_key = file("~/.ssh/id_rsa.pub")
-  }
+ admin_ssh_key {
+  username   = "azureuser"
+  public_key = file("${path.module}/ssh_keys/id_rsa.pub")
+}
 
   os_disk {
     caching              = "ReadWrite"
